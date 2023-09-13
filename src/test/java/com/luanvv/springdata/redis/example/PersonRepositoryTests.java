@@ -26,6 +26,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.redis.DataRedisTest;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -46,7 +47,7 @@ import org.springframework.data.redis.core.index.Indexed;
 @DataRedisTest(
 		properties = "spring.redis.cluster.nodes=redis://node1-redis-dev.com:6379"
 )
-@SpringBootTest(classes = { AppConfig.class })
+@Import(AppConfig.class)
 class PersonRepositoryTests {
 
 	/** {@link Charset} for String conversion **/
