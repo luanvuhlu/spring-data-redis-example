@@ -37,8 +37,12 @@ import org.springframework.data.redis.repository.configuration.EnableRedisReposi
 @Configuration
 public class AppConfig {
 
-  @Value("${spring.redis.cluster.node}")
+
   private List<String> clusterNodes;
+
+  public AppConfig(@Value("${spring.redis.cluster.node}") List<String> clusterNodes) {
+    this.clusterNodes = clusterNodes;
+  }
 
   @Bean
   RedisConnectionFactory connectionFactory() {
