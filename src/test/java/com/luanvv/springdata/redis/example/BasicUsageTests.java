@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.test.context.TestPropertySource;
 
 /**
  * {@link BasicUsageTests} shows general usage of {@link RedisTemplate} and {@link RedisOperations} in a clustered
@@ -19,7 +20,7 @@ import org.springframework.data.redis.core.RedisTemplate;
  * @author Christoph Strobl
  */
 @SpringBootTest(classes = { AppConfig.class })
-@EnableConfigurationProperties
+@TestPropertySource("classpath:application.properties")
 class BasicUsageTests {
 
   @Autowired RedisTemplate<String, String> template;
