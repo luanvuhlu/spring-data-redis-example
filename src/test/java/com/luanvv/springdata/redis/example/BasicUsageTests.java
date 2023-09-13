@@ -18,7 +18,6 @@ import org.springframework.data.redis.core.RedisTemplate;
  * @author Christoph Strobl
  */
 @SpringBootTest(classes = { AppConfig.class })
-@EnabledOnRedisClusterAvailable(port = 6379)
 class BasicUsageTests {
 
   @Autowired RedisTemplate<String, String> template;
