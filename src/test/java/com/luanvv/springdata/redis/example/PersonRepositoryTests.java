@@ -43,7 +43,6 @@ import org.springframework.data.redis.core.index.Indexed;
  * @author Mark Paluch
  */
 @DataRedisTest
-//@EnabledOnRedisClusterAvailable(port = 6379)
 class PersonRepositoryTests {
 
 	/** {@link Charset} for String conversion **/
