@@ -40,7 +40,7 @@ import org.springframework.data.redis.repository.configuration.EnableRedisReposi
 public class AppConfig {
 
 
-  @Value("${spring.redis.cluster.node}")
+  @Value("${spring.redis.cluster.nodes}")
   private List<String> clusterNodes;
 
   @Bean
