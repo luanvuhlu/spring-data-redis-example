@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.redis.connection.RedisClusterConfiguration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
@@ -35,14 +36,12 @@ import org.springframework.data.redis.repository.configuration.EnableRedisReposi
 @EnableAutoConfiguration
 @EnableRedisRepositories
 @Configuration
+@PropertySource(value = "classpath:application.properties", ignoreResourceNotFound = true)
 public class AppConfig {
 
 
+  @Value("${spring.redis.cluster.node}")
   private List<String> clusterNodes;
-
-  public AppConfig(@Value("${spring.redis.cluster.node}") List<String> clusterNodes) {
-    this.clusterNodes = clusterNodes;
-  }
 
   @Bean
   RedisConnectionFactory connectionFactory() {
