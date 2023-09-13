@@ -42,7 +42,9 @@ import org.springframework.data.redis.core.index.Indexed;
  * @author Oliver Gierke
  * @author Mark Paluch
  */
-@DataRedisTest
+@DataRedisTest(
+		properties = "spring.redis.cluster.nodes=redis://node1-redis-dev.com:6379"
+)
 class PersonRepositoryTests {
 
 	/** {@link Charset} for String conversion **/
