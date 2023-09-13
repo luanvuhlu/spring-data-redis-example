@@ -16,6 +16,7 @@
 package com.luanvv.springdata.redis.example;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -36,7 +37,8 @@ import org.springframework.data.redis.repository.configuration.EnableRedisReposi
 @Configuration
 public class AppConfig {
 
-  List<String> clusterNodes = List.of("node1-redis-dev.com:6379");
+  @Value("${spring.redis.cluster.node}")
+  private List<String> clusterNodes;
 
   @Bean
   RedisConnectionFactory connectionFactory() {
